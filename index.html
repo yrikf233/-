@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Кейс-дослідження: Професійна освіта в DACH</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        /* --- Базові стилі --- */
+        body {
+            font-family: 'Segoe UI', 'Open Sans', sans-serif;
+            line-height: 1.6;
+            background-color: #f0f2f5;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+
+        /* --- Навігація --- */
+        nav {
+            background-color: #2c3e50;
+            padding: 15px 0;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        nav a {
+            color: #ecf0f1;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover { color: #3498db; }
+
+        /* --- Hero Section --- */
+        .hero {
+            /* Фото: Загальне інженерне креслення */
+            background: linear-gradient(rgba(44, 62, 80, 0.9), rgba(44, 62, 80, 0.7)), url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+            margin-bottom: 40px;
+        }
+
+        .hero h1 { font-size: 2.8em; margin-bottom: 10px; }
+        .hero p { font-size: 1.2em; opacity: 0.9; }
+
+        /* --- Контейнер --- */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* --- Секції --- */
+        section {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+        }
+
+        h2 {
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            display: inline-block;
+            margin-top: 0;
+        }
+
+        /* --- Картки країн --- */
+        .country-card {
+            display: flex;
+            gap: 30px;
+            margin-top: 25px;
+            align-items: flex-start;
+        }
+
+        .country-card.reversed { flex-direction: row-reverse; }
+
+        /* Стилі для зображень */
+        .country-img {
+            width: 45%;
+            height: 300px; /* Фіксована висота */
+            object-fit: cover; /* Обрізає зайве, зберігаючи пропорції */
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .content { flex: 1; }
+
+        /* --- Відео --- */
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 співвідношення */
+            height: 0;
+            overflow: hidden;
+            border-radius: 8px;
+            margin-top: 20px;
+            border: 1px solid #ddd;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .resources-title {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+            color: #7f8c8d;
+            font-size: 0.9em;
+            margin-bottom: 5px;
+        }
+
+        /* --- Таблиця --- */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #eee;
+            padding: 12px;
+            text-align: left;
+        }
+        th { background-color: #34495e; color: white; }
+        tr:nth-child(even) { background-color: #f9f9f9; }
+
+        /* --- Футер --- */
+        footer {
+            text-align: center;
+            padding: 30px;
+            background-color: #2c3e50;
+            color: #bdc3c7;
+            margin-top: 50px;
+        }
+
+        /* Адаптивність */
+        @media (max-width: 768px) {
+            .country-card, .country-card.reversed { flex-direction: column; }
+            .country-img { width: 100%; height: auto; max-height: 250px; }
+            
+            /* Таблиця для мобільного */
+            table, thead, tbody, th, td, tr { display: block; }
+            thead tr { position: absolute; top: -9999px; left: -9999px; }
+            tr { margin-bottom: 10px; border: 1px solid #ccc; }
+            td { border: none; border-bottom: 1px solid #eee; position: relative; padding-left: 50%; }
+            td:before { position: absolute; left: 10px; width: 45%; font-weight: bold; content: attr(data-label); }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#germany">Німеччина</a>
+        <a href="#switzerland">Швейцарія</a>
+        <a href="#austria">Австрія</a>
+        <a href="#comparison">Порівняння</a>
+    </nav>
+
+    <div class="hero">
+        <h1>Професійна освіта: Досвід DACH</h1>
+        <p>Аналіз моделей підготовки технічних фахівців</p>
+    </div>
+
+    <div class="container">
+        
+        <section id="germany">
+            <h2><i class="fas fa-flag"></i> Німеччина</h2>
+            <div class="country-card">
+                <img class="country-img" src="https://images.unsplash.com/photo-1535732820275-f84887320f26?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Завод в Німеччині">
+                
+                <div class="content">
+                    <p>Німеччина — це батьківщина дуальної освіти. Тут все чітко регламентовано законом BBiG.</p>
+                    <ul>
+                        <li><i class="fas fa-check"></i> <b>Масштаб:</b> Понад 300 офіційних професій.</li>
+                        <li><i class="fas fa-check"></i> <b>Фінансування:</b> Бізнес покриває 70% витрат.</li>
+                    </ul>
+                    
+                    <span class="resources-title"><i class="fab fa-youtube"></i> Відео-огляд системи (англ):</span>
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/sXhBEtt2gMk" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="switzerland">
+            <h2><i class="fas fa-flag"></i> Швейцарія</h2>
+            <div class="country-card reversed">
+                <img class="country-img" src="https://images.unsplash.com/photo-1581093588402-4857463f2115?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Лабораторія в Швейцарії">
+                
+                <div class="content">
+                    <p>Швейцарська система VET — це престиж. Тут найсильніший зв'язок з ринком праці.</p>
+                    <ul>
+                        <li><i class="fas fa-check"></i> <b>Гнучкість:</b> Програми оновлюються постійно.</li>
+                        <li><i class="fas fa-check"></i> <b>Кар'єра:</b> Легкий вступ до університетів після практики.</li>
+                    </ul>
+
+                    <span class="resources-title"><i class="fab fa-youtube"></i> Відео про Швейцарську VET (англ):</span>
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/kbHpCgwv9eY" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="austria">
+            <h2><i class="fas fa-flag"></i> Австрія</h2>
+            <div class="country-card">
+                <img class="country-img" src="https://images.unsplash.com/photo-1622323381655-6b5d985a7719?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Майстерня в Австрії">
+                
+                <div class="content">
+                    <p>Австрія має унікальні технічні коледжі (HTL) на додаток до навчання на фірмах.</p>
+                    <ul>
+                        <li><i class="fas fa-check"></i> <b>HTL:</b> 5-річні інженерні коледжі.</li>
+                        <li><i class="fas fa-check"></i> <b>Гарантії:</b> Держава знаходить місце кожному учню.</li>
+                    </ul>
+
+                    <span class="resources-title"><i class="fab fa-youtube"></i> Як це працює в Австрії (англ):</span>
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/J72cPhyQWqA" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="comparison">
+            <h2>Порівняння</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Характеристика</th>
+                        <th>Німеччина 🇩🇪</th>
+                        <th>Швейцарія 🇨🇭</th>
+                        <th>Австрія 🇦🇹</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="Характеристика"><b>Роль держави</b></td>
+                        <td data-label="Німеччина">Висока регуляція</td>
+                        <td data-label="Швейцарія">Помірна (більше вплив асоціацій)</td>
+                        <td data-label="Австрія">Висока (через Палати)</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Характеристика"><b>Особливість</b></td>
+                        <td data-label="Німеччина">Статус "Meister"</td>
+                        <td data-label="Швейцарія">Висока проникність до ВНЗ</td>
+                        <td data-label="Австрія">Школи-коледжі HTL</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <footer>
+            <p>&copy; 2025 Дослідження освітніх систем.</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>
